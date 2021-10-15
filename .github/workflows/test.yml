@@ -18,6 +18,9 @@ jobs:
       - uses: actions/cache@v2
         with:
           key: jars-{{ checksum "build.gradle" }}
+          paths: |
+            ~/.gradle
+            ~/.android/build-cache
       - run: ./gradlew assembleDebug check
         name: Run Build and Tests
       - uses: actions/upload-artifact@v2
