@@ -18,7 +18,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           key: jars-{{ checksum "build.gradle" }}
-          paths: |
+          path: |
             ~/.gradle
             ~/.android/build-cache
       - run: ./gradlew assembleDebug check
