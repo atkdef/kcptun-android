@@ -20,9 +20,8 @@ jobs:
       - uses: actions/cache@v2
         with:
           key: go-{{ checksum "app/src/main/go/v2ray-plugin/go.sum" }}
-      - run:
+      - run: ./gradlew assembleDebug check
         name: Run Build and Tests
-        command: ./gradlew assembleDebug check
       - uses: actions/upload-artifact@v2
         with:
           name: apk
