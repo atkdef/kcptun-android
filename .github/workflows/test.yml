@@ -7,7 +7,8 @@ on:
 
 jobs:
   Explore-GitHub-Actions:
-    runs-on: shadowsocks/android-ndk-go
+    runs-on: ubuntu-latest
+    container: shadowsocks/android-ndk-go
     env:
       JVM_OPTS: -Xmx3500m
       GRADLE_OPTS: -Dorg.gradle.workers.max=1 -Dorg.gradle.daemon=false -Dkotlin.compiler.execution.strategy="in-process"
