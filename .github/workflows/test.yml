@@ -17,10 +17,7 @@ jobs:
       - run: git submodule update --init --recursive
       - uses: actions/cache@v2
         with:
-          key: jars-{{ checksum "build.gradle.kts" }}
-      - uses: actions/cache@v2
-        with:
-          key: go-{{ checksum "app/src/main/go/v2ray-plugin/go.sum" }}
+          key: jars-{{ checksum "build.gradle" }}
       - run: ./gradlew assembleDebug check
         name: Run Build and Tests
       - uses: actions/upload-artifact@v2
