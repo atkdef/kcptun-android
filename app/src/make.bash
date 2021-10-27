@@ -25,7 +25,7 @@ if [ ! -f "$TARGET/armeabi-v7a/libkcptun.so" ] || [ ! -f "$TARGET/arm64-v8a/libk
 
     echo "Cross compile kcptun for arm"
     if [ ! -f "$TARGET/armeabi-v7a/libkcptun.so" ]; then
-        try env CGO_ENABLED=1 CC=$TOOLCHAIN/armv7a-linux-androideabi${MIN_API}-clang GOOS=android GOARCH=arm GOARM=7 go build -ldflags="-s -w"
+        try env CGO_ENABLED=1 CC=$TOOLCHAIN/armv7a-linux-androideabi${MIN_API}-clang GOOS=android GOARCH=arm GOARM=7 go build -v -ldflags="-s -w"
         try $TOOLCHAIN/arm-linux-androideabi-strip client
         try mv client $TARGET/armeabi-v7a/libkcptun.so
     fi
